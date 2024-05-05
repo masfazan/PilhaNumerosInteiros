@@ -12,7 +12,7 @@ internal class Program
         int numero;
         int opccopia = 0;
 
-        do
+        int Menu()
         {
             Console.Clear();
             Console.WriteLine("MENU PRINCIPAL");
@@ -25,31 +25,37 @@ internal class Program
             Console.WriteLine("6-Imprimir números pares");
             Console.WriteLine("0-Sair");
             Console.Write("Informar a opção desejada:< >\b\b");
-            opcmenu = int.Parse(Console.ReadLine());
+            return int.Parse(Console.ReadLine());
+        }
 
-            switch (opcmenu)
+        do
+        {
+            switch (Menu())
             {
                 case 1:
                     Console.WriteLine("Informe em qual pilha deseja adicionar números inteiros, pilha 1 ou pilha 2? ");
                     opcpilha = int.Parse(Console.ReadLine());
-                    Console.WriteLine("Digite o número que deseja incluir na pilha: ");
+                    Console.WriteLine("Digite o(s) número(s) que deseja incluir na pilha: ");
                     while (!int.TryParse(Console.ReadLine(), out numero)) //TryParse converte pra bool, melhora cód verificação
-                    {
-                        Console.WriteLine("Por favor, insira um número inteiro válido:");
-                    }
+                        {
+                            Console.WriteLine("Por favor, insira um número inteiro válido:");
+                            break;
+                        }
 
-                    if (opcpilha == 1)
-                    {
-                        pilha1.push(new Numero(numero));
-                    }
-                    else if (opcpilha == 2)
-                    {
-                        pilha2.push(new Numero(numero));
-                    }
-                    else
-                    {
-                        Console.WriteLine("Opção inválida.");
-                    }
+                        if (opcpilha == 1)
+                        {
+                            pilha1.push(new Numero(numero));
+                        }
+                        else if (opcpilha == 2)
+                        {
+                            pilha2.push(new Numero(numero));
+                        }
+                        else
+                        {
+                            Console.WriteLine("Opção inválida.");
+                            break;
+                        }
+                    
                     break;
                 case 2:
                     Console.WriteLine("Pilha 1");
@@ -111,7 +117,7 @@ internal class Program
                     break;
             }
 
-        } while (opcmenu != 0);
+        } while (true);
     }
 
 

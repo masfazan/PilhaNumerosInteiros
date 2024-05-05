@@ -1,6 +1,6 @@
 ﻿namespace PilhaNumerosInteiros
 {
-    
+
 
     internal class Numero
     {
@@ -33,9 +33,9 @@
             return nanterior;
         }
 
-        public Numero setNanterior(Numero numero) //atribuir valor ao anterior
+        public void setNanterior(Numero numero) //atribuir valor ao anterior
         {
-            return nanterior;
+            this.nanterior=numero;
         }
 
     }

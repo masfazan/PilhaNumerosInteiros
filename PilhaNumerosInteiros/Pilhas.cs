@@ -80,7 +80,7 @@
                 }
                 aux = aux.getNanterior();//vai receber o valor do anterior
             }
-            Console.WriteLine("Quantidade de números pares: "+ par);
+            Console.WriteLine("Quantidade de números pares: " + par);
         }
 
         public void Impar()
@@ -131,15 +131,12 @@
             else
             {
                 for (; aux != null; aux = aux.getNanterior()) ;
-            }
-            {
-                // Adiciona o valor atual de aux à nova pilha
                 pilhaaux.push(new Numero(aux.getNumero()));
             }
             return pilhaaux;
         }
 
-        
+
+
     }
 }
-
