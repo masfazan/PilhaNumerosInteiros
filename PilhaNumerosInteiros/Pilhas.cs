@@ -3,15 +3,11 @@
     internal class Pilhas
     {
         Numero topo;
-        int pares;
-        int impares;
         int quantidade;
 
         public Pilhas()
         {
             topo = null;
-            pares = 0;
-            impares = 0;
             quantidade = 0;
         } //pilha
 
@@ -134,6 +130,44 @@
                 pilhaaux.push(new Numero(aux.getNumero()));
             }
             return pilhaaux;
+        }
+
+        public void MMMedia()
+        {
+            Numero aux = topo;
+            int size = this.tamanho();
+            int contador = 0;
+            int soma = 0;
+            int maior = 0;
+            int menor = Int32.MaxValue; //inicializa com o maior valor possível e encontra o menor valor por meio de comparação
+            float media = 0;
+
+            if (PilhaVazia() )
+            {
+                Console.WriteLine("Não há conteúdo na pilha escolhida");
+            }
+            else
+            {
+                do
+                {
+                    soma += aux.getNumero();//ajuda na média, a cada incremento o valor do numero(aux) é somado
+                    contador++;
+
+                    if (menor> aux.getNumero())//menor se aux for menor que variável menor, então atualiza o menor
+                        menor= aux.getNumero();
+                    if (maior > aux.getNumero())//maior
+                        maior = aux.getNumero();
+                    aux=aux.getNanterior();//ponteiro aponta para o anterior, até ser null while (aux != null);
+
+                } while (aux != null);//até o último valor
+
+                media=(soma/size);
+                Console.WriteLine($"Média: {media}");
+                Console.WriteLine($"Menor: {menor}");
+                Console.WriteLine($"Maior: {maior}");
+            }
+
+
         }
 
 

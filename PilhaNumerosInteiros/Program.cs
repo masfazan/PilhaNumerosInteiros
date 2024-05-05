@@ -2,7 +2,7 @@
 
 internal class Program
 {
-    private static void Main(string[] args)
+    private static void Main()
     {
         Pilhas pilha1 = new Pilhas();
         Pilhas pilha2 = new Pilhas();
@@ -23,8 +23,9 @@ internal class Program
             Console.WriteLine("4-Tranferir elementos da pilha para pilha auxiliar");
             Console.WriteLine("5-Imprimir números ímpares");
             Console.WriteLine("6-Imprimir números pares");
+            Console.WriteLine("7- Ver o maior e o menor número e a média da pilha");
             Console.WriteLine("0-Sair");
-            Console.Write("Informar a opção desejada:< >\b\b");
+            Console.Write("Informar a opção desejada: ");
             return int.Parse(Console.ReadLine());
         }
 
@@ -108,6 +109,28 @@ internal class Program
                 case 6:
                     pilha1.Impar();
                     pilha2.Impar();
+                    break;
+                case 7:
+                    Console.WriteLine("Informe em qual pilha deseja ver o maior, menor e a média: 1 ou 2? ");
+                    opcpilha = int.Parse(Console.ReadLine());
+                    while (!int.TryParse(Console.ReadLine(), out numero)) 
+                    {
+                        Console.WriteLine("Por favor, insira um número inteiro válido:");
+                        break;
+                    }
+                    if (opcpilha == 1)
+                    {
+                        pilha1.MMMedia();
+                    }
+                    else if (opcpilha == 2)
+                    {
+                        pilha2.MMMedia();
+                    }
+                    else
+                    {
+                        Console.WriteLine("Opção inválida.");
+                        break;
+                    }
                     break;
                 case 0:
                     Console.WriteLine("Sair");
